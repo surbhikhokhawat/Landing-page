@@ -1,390 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Township Overview</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              brand: "'Merriweather', serif",
-            },
-            colors: {
-              brand: {
-                gray: "#F7F7F7",
-                green: "#004042",
-              },
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Township Overview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            brand: "'Merriweather', serif",
+          },
+          colors: {
+            brand: {
+              gray: "#F7F7F7",
+              green: "#141b1f",
             },
           },
         },
-      };
-    </script>
-    <script>
-      let isNavbarOpen = false;
-      function handleToggleNavbar(force = false) {
-        if (force) {
-          isNavbarOpen = true;
-        }
-        const navItems = document.getElementById("navbar-items");
-        if (isNavbarOpen) {
-          navItems.classList.add("hidden");
-          navItems.classList.add("space-x-5");
-          navItems.classList.remove("flex");
-          navItems.classList.remove("pt-5");
-          navItems.classList.remove("px-5");
-          navItems.classList.remove("!items-start");
-          navItems.classList.remove("!justify-start");
-          navItems.classList.remove("!space-y-3");
-          isNavbarOpen = false;
-        } else {
-          navItems.classList.remove("hidden");
-          navItems.classList.remove("space-x-5");
-          navItems.classList.add("flex");
-          navItems.classList.add("pt-5");
-          navItems.classList.add("px-5");
-          navItems.classList.add("!items-start");
-          navItems.classList.add("!justify-start");
-          navItems.classList.add("!space-y-3");
-          isNavbarOpen = true;
-        }
+      },
+    };
+  </script>
+  <script>
+    let isNavbarOpen = false;
+    function handleToggleNavbar(force = false) {
+      if (force) {
+        isNavbarOpen = true;
       }
-    </script>
-  </head>
-  <body class="font-brand scroll-smooth">
-    <!-- Navbar -->
-    <header
-      class="w-full flex items-center justify-center bg-brand-green py-4 sticky left-0 top-0"
-    >
-      <div
-        class="w-11/12 lg:w-10/12 grid grid-cols-2 lg:flex items-center justify-between"
-      >
-        <img src="/Landing-page/static/logo.jpeg" class="h-16" alt="logo" />
-        <div class="flex items-center justify-end">
-          <button
-            type="button"
-            class="flex items-center p-2 text-sm text-gray-300 lg:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
-            onclick="handleToggleNavbar()"
-          >
-            <span class="sr-only">Open main menu</span>
-            <svg
-              class="w-6 h-6"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
+      const navItems = document.getElementById("navbar-items");
+      if (isNavbarOpen) {
+        navItems.classList.add("hidden");
+        navItems.classList.add("space-x-5");
+        navItems.classList.remove("flex");
+        navItems.classList.remove("pt-5");
+        navItems.classList.remove("px-5");
+        navItems.classList.remove("!items-start");
+        navItems.classList.remove("!justify-start");
+        navItems.classList.remove("!space-y-3");
+        isNavbarOpen = false;
+      } else {
+        navItems.classList.remove("hidden");
+        navItems.classList.remove("space-x-5");
+        navItems.classList.add("flex");
+        navItems.classList.add("pt-5");
+        navItems.classList.add("px-5");
+        navItems.classList.add("!items-start");
+        navItems.classList.add("!justify-start");
+        navItems.classList.add("!space-y-3");
+        isNavbarOpen = true;
+      }
+    }
+  </script>
+</head>
+
+<body class="font-brand scroll-smooth">
+  <!-- Navbar -->
+  <header class="w-full flex items-center justify-center bg-white py-4 sticky left-0 top-0">
+    <div class="w-11/12 lg:w-10/12 grid grid-cols-2 lg:flex items-center justify-between">
+      <div class="flex gap-5">
+        <img src="static/kolte-patil.png" class="h-16" alt="logo" />
+        <img src="static/logo.png" class="h-16" alt="logo">
+      </div>
+      <div class="flex items-center justify-end">
+        <button type="button"
+          class="flex items-center p-2 text-sm text-gray-300 lg:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
+          onclick="handleToggleNavbar()">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <nav id="navbar-items"
+        class="text-black lg:flex flex-col lg:flex-row items-center justify-end space-x-5 text-md hidden">
+        <a onclick="handleToggleNavbar(true)" href="#Overview">Overview</a>
+        <a onclick="handleToggleNavbar(true)" href="#Location-Insights">Location Insights</a>
+        <a onclick="handleToggleNavbar(true)" href="#Project-Highlights">Project Highlights</a>
+        <a onclick="handleToggleNavbar(true)" href="#Pricing">Pricing</a>
+        <a onclick="handleToggleNavbar(true)" href="#Contact-Us">Contact Us</a>
+        <a onclick="handleToggleNavbar(true)" href="#Enquire-Now"
+          class="text-black bg-white font-bold px-2 py-1">Enquire Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner Image -->
+  <section>
+    <img src="/Landing-page/static//banner.jpeg" alt="home banner" class="w-full" />
+  </section>
+
+  <!-- Township Overview Section -->
+  <section id="Overview" class="bg-brand-gray w-full py-10">
+    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
+      <h2 class="text-center text-2xl font-bold mb-2">Township Overview</h2>
+      <hr class="w-20 mb-10 bg-black border-none h-0.5" />
+
+      <p class="text-justify leading-7 text-gray-600 mb-5">
+        Kolte Patil Life Republic is a 400 Acres of west pune’s biggest
+        township situated just 4.5 kilometers away from Hinjewadi, the IT hub
+        of Pune. Avails a township with acres of natural surroundings and
+        brings together a gated community. Be it a boulevard for a relaxing
+        evening outside or an exhilarating livelihood inside. At Life
+        Republic, prevail a balanced life ready to be bloomed.
+      </p>
+      <button class="bg-black text-white px-4 py-2 font-semibold">
+        Request For Brochure
+      </button>
+    </div>
+  </section>
+
+  <!-- Aros R 13 New Launch Section -->
+  <section class="bg-brand-green text-white w-full py-10">
+    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
+      <h2 class="text-center text-2xl font-bold mb-2">
+        Aros R 13 New Launch
+      </h2>
+      <hr class="w-20 mb-10 bg-white border-none h-0.5" />
+
+      <p class="text-justify leading-7 mb-5">
+        The New launch Aros with a thoughtfully crafted combination of 2 & 3
+        BHK Flats aims at providing extra ordinary living with a world of
+        privileges in different ways be it mesmerizing nature’s nest, a 3
+        level club house or an extensive sky trail. Result is an Extra
+        Ordinary Living!
+      </p>
+    </div>
+  </section>
+
+  <!-- Project Highlights Section -->
+  <section id="Project-Highlights" class="bg-brand-gray w-full py-10">
+    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
+      <h2 class="text-center text-2xl font-bold mb-2">Project Highlights</h2>
+      <hr class="w-20 mb-10 bg-black border-none h-0.5" />
+
+      <ul class="list-disc flex flex-col space-y-4">
+        <li>3 Level Club AROS with an expanse of 19,000 Sqft.</li>
+        <li>Exclusive guest suites in each building</li>
+        <li>Sports Arenas & Entertainment Centre&apos;s</li>
+        <li>Health Care - Apollo Clinic</li>
+        <li>Crimson Anisha Global School</li>
+        <li>Police Station</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STRATEGIC LOCATION Section -->
+  <section id="Location-Insights" class="bg-brand-green text-white w-full py-10">
+    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
+      <h2 class="text-center text-2xl font-bold mb-2">STRATEGIC LOCATION</h2>
+      <hr class="w-20 mb-10 bg-white border-none h-0.5" />
+
+      <ul class="list-disc flex flex-col space-y-4">
+        <li>Well Connected to Pune Mumbai Expressway</li>
+        <li>Multiple Connectivity's from Rajiv Gandhi IT Park & PCMC</li>
+        <li>Upcoming Pune Metro Connecting Hinjewadi to Shivaji Nagar</li>
+        <li>
+          Upcoming Mahalunge - Hinjewadi IT PARK Bridge on Mula River
+          Connecting Baner & Balewadi
+        </li>
+        <li>Upcoming 110m Wide Ring Road to Link PMC to Major Highways</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Amenities Section -->
+  <section class="bg-brand-gray text-black w-full py-10">
+    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
+      <h2 class="text-center text-2xl font-bold mb-2">Amenities</h2>
+      <hr class="w-20 mb-10 bg-black border-none h-0.5" />
+
+      <div class="w-full md:w-8/12 grid grid-cols-1 md:grid-cols-2 items-start gap-5 mb-5">
+        <ul class="list-disc flex flex-col space-y-4">
+          <li>100 ft. long floating fitness studio</li>
+          <li>Semi-Olympic size pool, Jacuzzi and kids pool</li>
+          <li>Geek Zone: Co-working Space</li>
+        </ul>
+
+        <ul class="list-disc flex flex-col space-y-4">
+          <li>Kids Play Arena & Adventure Park</li>
+          <li>Sky Bridge & Star Gazing Point</li>
+        </ul>
+      </div>
+
+      <button class="bg-black text-white px-5 py-2 font-semibold">
+        Know More
+      </button>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="Pricing" class="bg-brand-green text-white w-full py-10">
+    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
+      <h2 class="text-center text-2xl font-bold mb-2">Pricing</h2>
+      <hr class="w-20 mb-10 bg-white border-none h-0.5" />
+
+      <div class="w-full md:w-8/12 mx-auto flex flex-col gap-5 divide-y-2 divide-white">
+        <div class="w-full grid grid-cols-2 font-bold text-xl divide-x-2 divide-white">
+          <span>Configuration</span>
+          <span class="text-center">Price</span>
+        </div>
+        <div class="w-full grid grid-cols-2 text-md pb-2 pt-5 divide-x-2 divide-white">
+          <span>2 BHK</span>
+          <span class="text-center">Starting 67 Lacs* Onwards</span>
+        </div>
+        <div class="w-full grid grid-cols-2 text-md pb-2 pt-5 divide-x-2 divide-white">
+          <span>3 BHK</span>
+          <span class="text-center">87 Lacs* Onwards</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Address Section -->
+  <section class="bg-brand-gray text-black w-full py-10">
+    <div class="w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="flex flex-col items-center justify-center h-full text-center">
+        <h2 class="text-center text-2xl font-bold mb-2">Address</h2>
+        <hr class="w-20 mb-10 bg-black border-none h-0.5" />
+
+        <p class="text-lg font-bold">PRESIDENTIAL TOWERS</p>
+        <p class="w-full md:w-2/3">
+          Opp. Sentosa Water Resorts, Ravet, Pimpri-Chinchwad, Maharashtra
+          412101
+        </p>
+      </div>
+
+      <div>
+        <img src="/Landing-page/static/location.jpeg" alt="Location Map" class="h-80" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="Contact-Us" class="bg-brand-green text-white w-full py-10">
+    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
+      <h2 class="text-center text-2xl font-bold mb-2">Contact Us</h2>
+      <hr class="w-20 mb-10 bg-white border-none h-0.5" />
+
+      <div class="w-full md:w-8/12 mx-auto">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+          <input placeholder="First Name" type="text" name="first_name"
+            class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black" />
+          <input placeholder="Phone" type="text" name="phone"
+            class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black" />
+          <input placeholder="Email" type="email" name="email"
+            class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black" />
+          <select placeholder="Configuration" name="configuration"
+            class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black">
+            <option value="">Configuration Looking For</option>
+            <option value="2bhk">2 BHK</option>
+            <option value="3bhk">3 BHK</option>
+          </select>
+
+          <select placeholder="Site Visit Availablity" name="site_visit_availablity"
+            class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black">
+            <option value="">Site Visit Availablity?</option>
+            <option value="2bhk">Weekends</option>
+            <option value="3bhk">Weekdays</option>
+          </select>
+
+          <div class="md:col-span-2">
+            <input type="checkbox" name="agree_to_contact" id="agree_to_contact" />
+            <label for="agree_to_contact">I agreed to be contacted on Whatsapp</label>
+          </div>
+
+          <button type="submit" class="bg-black text-white px-5 py-2 font-semibold">
+            Submit
           </button>
-        </div>
-        <nav
-          id="navbar-items"
-          class="text-white lg:flex flex-col lg:flex-row items-center justify-end space-x-5 text-md hidden"
-        >
-          <a onclick="handleToggleNavbar(true)" href="#Overview">Overview</a>
-          <a onclick="handleToggleNavbar(true)" href="#Location-Insights"
-            >Location Insights</a
-          >
-          <a onclick="handleToggleNavbar(true)" href="#Project-Highlights"
-            >Project Highlights</a
-          >
-          <a onclick="handleToggleNavbar(true)" href="#Pricing">Pricing</a>
-          <a onclick="handleToggleNavbar(true)" href="#Contact-Us"
-            >Contact Us</a
-          >
-          <a
-            onclick="handleToggleNavbar(true)"
-            href="#Enquire-Now"
-            class="text-black bg-white font-bold px-2 py-1"
-            >Enquire Now</a
-          >
-        </nav>
+        </form>
+
+        <p>Projects are registered under MahaRERA</p>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <!-- Banner Image -->
-    <section>
-      <img src="/Landing-page/static//banner.jpeg" alt="home banner" class="w-full" />
-    </section>
-
-    <!-- Township Overview Section -->
-    <section id="Overview" class="bg-brand-gray w-full py-10">
-      <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-        <h2 class="text-center text-2xl font-bold mb-2">Township Overview</h2>
-        <hr class="w-20 mb-10 bg-black border-none h-0.5" />
-
+  <!-- Ceratec Group Section -->
+  <section class="bg-white text-black w-full py-5">
+    <div class="w-10/12 mx-auto">
+      <div class="flex flex-col items-center justify-center h-full text-center">
+        <img src="/Landing-page/static/group-logo.jpeg" alt="Location Map" class="h-32 mb-5" />
         <p class="text-justify leading-7 text-gray-600 mb-5">
-          Kolte Patil Life Republic is a 400 Acres of west pune’s biggest
-          township situated just 4.5 kilometers away from Hinjewadi, the IT hub
-          of Pune. Avails a township with acres of natural surroundings and
-          brings together a gated community. Be it a boulevard for a relaxing
-          evening outside or an exhilarating livelihood inside. At Life
-          Republic, prevail a balanced life ready to be bloomed.
-        </p>
-        <button class="bg-black text-white px-4 py-2 font-semibold">
-          Request For Brochure
-        </button>
-      </div>
-    </section>
-
-    <!-- Aros R 13 New Launch Section -->
-    <section class="bg-brand-green text-white w-full py-10">
-      <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-        <h2 class="text-center text-2xl font-bold mb-2">
-          Aros R 13 New Launch
-        </h2>
-        <hr class="w-20 mb-10 bg-white border-none h-0.5" />
-
-        <p class="text-justify leading-7 mb-5">
-          The New launch Aros with a thoughtfully crafted combination of 2 & 3
-          BHK Flats aims at providing extra ordinary living with a world of
-          privileges in different ways be it mesmerizing nature’s nest, a 3
-          level club house or an extensive sky trail. Result is an Extra
-          Ordinary Living!
+          Life Republic is an address for exciting activities connecting people to one another while also giving them
+          ample choices to pursue their desires. Be it an avenue for a relaxing evening outdoor or an exhilarating game
+          inside the club house, here you live life to the fullest. Celebrations are the brightest in this community and
+          the fervour of the occasion elevates in vibrant colours. Be it Holi, Diwali or New Year’s eve, here every
+          occasion is a grand celebration, where people come together filling the day with unmatched fun and excitement.
         </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Project Highlights Section -->
-    <section id="Project-Highlights" class="bg-brand-gray w-full py-10">
-      <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-        <h2 class="text-center text-2xl font-bold mb-2">Project Highlights</h2>
-        <hr class="w-20 mb-10 bg-black border-none h-0.5" />
+  <!-- Footer -->
+  <footer class="w-full bg-black flex items-center justify-center text-center text-white py-1">
+    <small>
+      Copyright @2022. All Rights Reserved. Designed by Pinaka Digital
+      Technologies
+    </small>
+  </footer>
+</body>
 
-        <ul class="list-disc flex flex-col space-y-4">
-          <li>3 Level Club AROS with an expanse of 19,000 Sqft.</li>
-          <li>Exclusive guest suites in each building</li>
-          <li>Sports Arenas & Entertainment Centre&apos;s</li>
-          <li>Health Care - Apollo Clinic</li>
-          <li>Crimson Anisha Global School</li>
-          <li>Police Station</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- STRATEGIC LOCATION Section -->
-    <section
-      id="Location-Insights"
-      class="bg-brand-green text-white w-full py-10"
-    >
-      <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-        <h2 class="text-center text-2xl font-bold mb-2">STRATEGIC LOCATION</h2>
-        <hr class="w-20 mb-10 bg-white border-none h-0.5" />
-
-        <ul class="list-disc flex flex-col space-y-4">
-          <li>Well Connected to Pune Mumbai Expressway</li>
-          <li>Multiple Connectivity's from Rajiv Gandhi IT Park & PCMC</li>
-          <li>Upcoming Pune Metro Connecting Hinjewadi to Shivaji Nagar</li>
-          <li>
-            Upcoming Mahalunge - Hinjewadi IT PARK Bridge on Mula River
-            Connecting Baner & Balewadi
-          </li>
-          <li>Upcoming 110m Wide Ring Road to Link PMC to Major Highways</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Amenities Section -->
-    <section class="bg-brand-gray text-black w-full py-10">
-      <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-        <h2 class="text-center text-2xl font-bold mb-2">Amenities</h2>
-        <hr class="w-20 mb-10 bg-black border-none h-0.5" />
-
-        <div
-          class="w-full md:w-8/12 grid grid-cols-1 md:grid-cols-2 items-start gap-5 mb-5"
-        >
-          <ul class="list-disc flex flex-col space-y-4">
-            <li>100 ft. long floating fitness studio</li>
-            <li>Semi-Olympic size pool, Jacuzzi and kids pool</li>
-            <li>Geek Zone: Co-working Space</li>
-          </ul>
-
-          <ul class="list-disc flex flex-col space-y-4">
-            <li>Kids Play Arena & Adventure Park</li>
-            <li>Sky Bridge & Star Gazing Point</li>
-          </ul>
-        </div>
-
-        <button class="bg-black text-white px-5 py-2 font-semibold">
-          Know More
-        </button>
-      </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="Pricing" class="bg-brand-green text-white w-full py-10">
-      <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-        <h2 class="text-center text-2xl font-bold mb-2">Pricing</h2>
-        <hr class="w-20 mb-10 bg-white border-none h-0.5" />
-
-        <div
-          class="w-full md:w-8/12 mx-auto flex flex-col gap-5 divide-y-2 divide-white"
-        >
-          <div
-            class="w-full grid grid-cols-2 font-bold text-xl divide-x-2 divide-white"
-          >
-            <span>Configuration</span>
-            <span class="text-center">Price</span>
-          </div>
-          <div
-            class="w-full grid grid-cols-2 text-md pb-2 pt-5 divide-x-2 divide-white"
-          >
-            <span>2 BHK</span>
-            <span class="text-center">Starting 67 Lacs* Onwards</span>
-          </div>
-          <div
-            class="w-full grid grid-cols-2 text-md pb-2 pt-5 divide-x-2 divide-white"
-          >
-            <span>3 BHK</span>
-            <span class="text-center">87 Lacs* Onwards</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Address Section -->
-    <section class="bg-brand-gray text-black w-full py-10">
-      <div class="w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div
-          class="flex flex-col items-center justify-center h-full text-center"
-        >
-          <h2 class="text-center text-2xl font-bold mb-2">Address</h2>
-          <hr class="w-20 mb-10 bg-black border-none h-0.5" />
-
-          <p class="text-lg font-bold">PRESIDENTIAL TOWERS</p>
-          <p class="w-full md:w-2/3">
-            Opp. Sentosa Water Resorts, Ravet, Pimpri-Chinchwad, Maharashtra
-            412101
-          </p>
-        </div>
-
-        <div>
-          <img src="/Landing-page/static/location.jpeg" alt="Location Map" class="h-80" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Us Section -->
-    <section id="Contact-Us" class="bg-brand-green text-white w-full py-10">
-      <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-        <h2 class="text-center text-2xl font-bold mb-2">Contact Us</h2>
-        <hr class="w-20 mb-10 bg-white border-none h-0.5" />
-
-        <div class="w-full md:w-8/12 mx-auto">
-          <form class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-            <input
-              placeholder="First Name"
-              type="text"
-              name="first_name"
-              class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black"
-            />
-            <input
-              placeholder="Phone"
-              type="text"
-              name="phone"
-              class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black"
-            />
-            <input
-              placeholder="Email"
-              type="email"
-              name="email"
-              class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black"
-            />
-            <select
-              placeholder="Configuration"
-              name="configuration"
-              class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black"
-            >
-              <option value="">Configuration Looking For</option>
-              <option value="2bhk">2 BHK</option>
-              <option value="3bhk">3 BHK</option>
-            </select>
-
-            <select
-              placeholder="Site Visit Availablity"
-              name="site_visit_availablity"
-              class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black"
-            >
-              <option value="">Site Visit Availablity?</option>
-              <option value="2bhk">Weekends</option>
-              <option value="3bhk">Weekdays</option>
-            </select>
-
-            <div class="md:col-span-2">
-              <input
-                type="checkbox"
-                name="agree_to_contact"
-                id="agree_to_contact"
-              />
-              <label for="agree_to_contact"
-                >I agreed to be contacted on Whatsapp</label
-              >
-            </div>
-
-            <button
-              type="submit"
-              class="bg-black text-white px-5 py-2 font-semibold"
-            >
-              Submit
-            </button>
-          </form>
-
-          <p>Projects are registered under MahaRERA</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ceratec Group Section -->
-    <section class="bg-white text-black w-full py-5">
-      <div class="w-10/12 mx-auto">
-        <div
-          class="flex flex-col items-center justify-center h-full text-center"
-        >
-          <img
-            src="/Landing-page/static/group-logo.jpeg"
-            alt="Location Map"
-            class="h-32 mb-5"
-          />
-          <p class="text-justify leading-7 text-gray-600 mb-5">
-            Ceratec Group was founded in the year 2000, to provide holistic
-            lifestyle spaces, building futuristic state-of-the-art homes for
-            every budget. And we stand by our commitment. Ceratec Group is fast
-            growing into one of Pune’s leading brands in the real estate
-            industry. We have our belief system to thank for that. We recognize
-            that our customers’ investment in us is more than financial – it
-            symbolizes tremendous trust. We stepped into creating lifestyles in
-            real estate with a strong foundation of quality and expertise, with
-            customers at the center of our attention. We want to offer lifestyle
-            possibilities that are accessible, with a value that keeps growing.
-            Over the years, with numerous successful deliveries, we have emerged
-            as a name that customers can easily rely on.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer
-      class="w-full bg-black flex items-center justify-center text-center text-white py-1"
-    >
-      <small>
-        Copyright @2022. All Rights Reserved. Designed by Pinaka Digital
-        Technologies
-      </small>
-    </footer>
-  </body>
 </html>
