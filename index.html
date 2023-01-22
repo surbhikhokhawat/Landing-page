@@ -7,72 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Township Overview</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
     rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            brand: "'Merriweather', serif",
-          },
-          colors: {
-            brand: {
-              gray: "#F7F7F7",
-              green: "#141b1f",
-            },
-          },
-        },
-      },
-    };
-  </script>
-  <script>
-    let isNavbarOpen = false;
-    function handleToggleNavbar(force = false) {
-      if (force) {
-        isNavbarOpen = true;
-      }
-      const navItems = document.getElementById("navbar-items");
-      if (isNavbarOpen) {
-        navItems.classList.add("hidden");
-        navItems.classList.add("space-x-5");
-        navItems.classList.remove("flex");
-        navItems.classList.remove("pt-5");
-        navItems.classList.remove("px-5");
-        navItems.classList.remove("!items-start");
-        navItems.classList.remove("!justify-start");
-        navItems.classList.remove("!space-y-3");
-        isNavbarOpen = false;
-      } else {
-        navItems.classList.remove("hidden");
-        navItems.classList.remove("space-x-5");
-        navItems.classList.add("flex");
-        navItems.classList.add("pt-5");
-        navItems.classList.add("px-5");
-        navItems.classList.add("!items-start");
-        navItems.classList.add("!justify-start");
-        navItems.classList.add("!space-y-3");
-        isNavbarOpen = true;
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 
 <body class="font-brand scroll-smooth">
   <!-- Navbar -->
-  <header class="w-full flex items-center justify-center bg-white py-4 sticky left-0 top-0">
+  <header class="w-full flex items-center justify-center bg-white py-4 sticky left-0 top-0 z-40">
     <div class="w-11/12 lg:w-10/12 grid grid-cols-2 lg:flex items-center justify-between">
       <div class="flex gap-5">
         <img src="./static/kolte-patil.png" class="h-16" alt="logo" />
-        <img src="./static/logo.png" class="h-16" alt="logo">
+        <img src="./static/logo.png" class="h-16" alt="logo" />
       </div>
       <div class="flex items-center justify-end">
         <button type="button"
           class="flex items-center p-2 text-sm text-gray-300 lg:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
-          onclick="handleToggleNavbar()">
+          onclick="handleToggleNavbarModel()">
           <span class="sr-only">Open main menu</span>
           <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg">
@@ -85,43 +47,71 @@
       <nav id="navbar-items"
         class="text-black lg:flex flex-col lg:flex-row items-center justify-end space-x-5 text-md hidden">
         <a onclick="handleToggleNavbar(true)" href="#Overview">Overview</a>
-        <a onclick="handleToggleNavbar(true)" href="#Location-Insights">Location Insights</a>
         <a onclick="handleToggleNavbar(true)" href="#Project-Highlights">Project Highlights</a>
+        <a onclick="handleToggleNavbar(true)" href="#Location-Insights">Location Insights</a>
         <a onclick="handleToggleNavbar(true)" href="#Pricing">Pricing</a>
-        <a onclick="handleToggleNavbar(true)" href="#Contact-Us">Contact Us</a>
-        <a onclick="handleToggleNavbar(true)" href="#Enquire-Now"
-          class="text-black bg-white font-bold px-2 py-1">Enquire Now</a>
+        <a onclick="handleToggleNavbar(true)" href="#amenities">Amenities</a>
+        <button onclick="handleToggleNavbar(true); handleToggleModel();"
+          class="bg-brand-dark text-white px-5 py-2 font-semibold animate-btn">
+          Enquire Now
+        </button>
       </nav>
     </div>
   </header>
 
   <!-- Banner Image -->
   <section>
-    <img src="./static//banner.jpeg" alt="home banner" class="w-full" />
+    <div class="owl-carousel">
+      <img src="./static/banner.jpeg" alt="home banner" class="w-full" />
+      <img src="./static/banner.jpeg" alt="home banner" class="w-full" />
+    </div>
+    <div class="owl-dots flex items-center justify-center py-2"></div>
   </section>
 
   <!-- Township Overview Section -->
-  <section id="Overview" class="bg-brand-gray w-full py-10">
+  <section id="Overview" class="bg-brand-dark text-white w-full py-10">
     <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
       <h2 class="text-center text-2xl font-bold mb-2">Township Overview</h2>
-      <hr class="w-20 mb-10 bg-black border-none h-0.5" />
+      <hr class="w-20 mb-10 bg-white border-none h-0.5" />
 
-      <p class="text-justify leading-7 text-gray-600 mb-5">
+      <p class="text-justify leading-7 text-white-600 mb-5">
         Kolte Patil Life Republic is a 400 Acres of west pune’s biggest
-        township situated near Hinjewadi, the IT hub
-        of Pune. Avails a township with acres of natural surroundings and
-        brings together a gated community. Be it a boulevard for a relaxing
-        evening outside or an exhilarating livelihood inside. At Life
-        Republic, prevail a balanced life ready to be bloomed.
+        township situated near Hinjewadi, the IT hub of Pune. Avails a
+        township with acres of natural surroundings and brings together a
+        gated community. Be it a boulevard for a relaxing evening outside or
+        an exhilarating livelihood inside. At Life Republic, prevail a
+        balanced life ready to be bloomed.
       </p>
-      <button class="bg-black text-white px-4 py-2 font-semibold">
+      <button onclick="handleToggleModel()" class="bg-brand-gray text-black px-4 py-2 font-semibold animate-btn">
         Request For Brochure
       </button>
     </div>
   </section>
 
+  <!-- Project Highlights Section -->
+  <section id="Project-Highlights" class="bg-brand-gray text-black w-full py-10">
+    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
+      <h2 class="text-center text-2xl font-bold mb-2">Project Highlights</h2>
+      <hr class="w-20 mb-10 bg-black border-none h-0.5" />
+
+      <div class="w-full md:w-8/12 grid grid-cols-1 md:grid-cols-2 items-start gap-5 mb-5">
+        <ul class="list-disc flex flex-col space-y-4">
+          <li>3 Level Club AROS with an expanse of 19,000 Sqft.</li>
+          <li>Exclusive guest suites in each building</li>
+          <li>Sports Arenas & Entertainment Centre&apos;s</li>
+        </ul>
+
+        <ul class="list-disc flex flex-col space-y-4">
+          <li>Health Care - Apollo Clinic</li>
+          <li>Crimson Anisha Global School</li>
+          <li>Police Station</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- Aros R 13 New Launch Section -->
-  <section class="bg-brand-green text-white w-full py-10">
+  <section class="bg-brand-dark text-white w-full py-10">
     <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
       <h2 class="text-center text-2xl font-bold mb-2">
         Aros R 13 New Launch
@@ -138,85 +128,67 @@
     </div>
   </section>
 
-  <!-- Project Highlights Section -->
-  <section id="Project-Highlights" class="bg-brand-gray w-full py-10">
+
+
+  <!-- Pricing Section -->
+  <section id="Pricing" class="bg-brand-gray text-black w-full py-10">
     <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-      <h2 class="text-center text-2xl font-bold mb-2">Project Highlights</h2>
+      <h2 class="text-center text-2xl font-bold mb-2">Pricing</h2>
       <hr class="w-20 mb-10 bg-black border-none h-0.5" />
 
-      <ul class="list-disc flex flex-col space-y-4">
-        <li>3 Level Club AROS with an expanse of 19,000 Sqft.</li>
-        <li>Exclusive guest suites in each building</li>
-        <li>Sports Arenas & Entertainment Centre&apos;s</li>
-        <li>Health Care - Apollo Clinic</li>
-        <li>Crimson Anisha Global School</li>
-        <li>Police Station</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- STRATEGIC LOCATION Section -->
-  <section id="Location-Insights" class="bg-brand-green text-white w-full py-10">
-    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-      <h2 class="text-center text-2xl font-bold mb-2">STRATEGIC LOCATION</h2>
-      <hr class="w-20 mb-10 bg-white border-none h-0.5" />
-
-      <ul class="list-disc flex flex-col space-y-4">
-        <li>Well Connected to Pune Mumbai Expressway</li>
-        <li>Multiple Connectivity's from Rajiv Gandhi IT Park & PCMC</li>
-        <li>Upcoming Pune Metro Connecting Hinjewadi to Shivaji Nagar</li>
-        <li>
-          Upcoming Mahalunge - Hinjewadi IT PARK Bridge on Mula River
-          Connecting Baner & Balewadi
-        </li>
-        <li>Upcoming 110m Wide Ring Road to Link PMC to Major Highways</li>
-      </ul>
+      <div class="w-full md:w-8/12 mx-auto flex flex-col gap-5 divide-y-2 divide-black">
+        <div class="w-full grid grid-cols-2 font-bold text-xl divide-x-2 divide-black">
+          <span>Configuration</span>
+          <span class="text-center">Price</span>
+        </div>
+        <div class="w-full grid grid-cols-2 text-md pb-2 pt-5 divide-x-2 divide-black">
+          <span>2 BHK</span>
+          <div class="flex items-center justify-center">
+            <button onclick="handleToggleModel()" class="bg-brand-dark text-white px-5 py-2 font-semibold animate-btn">
+              Know More
+            </button>
+          </div>
+        </div>
+        <div class="w-full grid grid-cols-2 text-md pb-2 pt-5 divide-x-2 divide-black">
+          <span>3 BHK</span>
+          <div class="flex items-center justify-center">
+            <button onclick="handleToggleModel()" class="bg-brand-dark text-white px-5 py-2 font-semibold animate-btn">
+              Know More
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Amenities Section -->
-  <section class="bg-brand-gray text-black w-full py-10">
+  <section class="bg-brand-dark text-white w-full py-10" id="amenities">
     <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
       <h2 class="text-center text-2xl font-bold mb-2">Amenities</h2>
-      <hr class="w-20 mb-10 bg-black border-none h-0.5" />
+      <hr class="w-20 mb-10 bg-white border-none h-0.5" />
 
-      <div class="w-full md:w-8/12 grid grid-cols-1 md:grid-cols-2 items-start gap-5 mb-5">
-        <ul class="list-disc flex flex-col space-y-4">
+      <div class="w-full md:w-10/12 grid grid-cols-1 md:grid-cols-2 items-start gap-5 mb-5">
+        <ul class="list-disc flex flex-col space-y-10 mt-4">
           <li>100 ft. long floating fitness studio</li>
           <li>Semi-Olympic size pool, Jacuzzi and kids pool</li>
           <li>Geek Zone: Co-working Space</li>
-        </ul>
-
-        <ul class="list-disc flex flex-col space-y-4">
           <li>Kids Play Arena & Adventure Park</li>
           <li>Sky Bridge & Star Gazing Point</li>
         </ul>
-      </div>
 
-      <button class="bg-black text-white px-5 py-2 font-semibold">
-        Know More
-      </button>
-    </div>
-  </section>
-
-  <!-- Pricing Section -->
-  <section id="Pricing" class="bg-brand-green text-white w-full py-10">
-    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-      <h2 class="text-center text-2xl font-bold mb-2">Pricing</h2>
-      <hr class="w-20 mb-10 bg-white border-none h-0.5" />
-
-      <div class="w-full md:w-8/12 mx-auto flex flex-col gap-5 divide-y-2 divide-white">
-        <div class="w-full grid grid-cols-2 font-bold text-xl divide-x-2 divide-white">
-          <span>Configuration</span>
-          <span class="text-center">Price</span>
-        </div>
-        <div class="w-full grid grid-cols-2 text-md pb-2 pt-5 divide-x-2 divide-white">
-          <span>2 BHK</span>
-          <span class="text-center">Starting 67 Lacs* Onwards</span>
-        </div>
-        <div class="w-full grid grid-cols-2 text-md pb-2 pt-5 divide-x-2 divide-white">
-          <span>3 BHK</span>
-          <span class="text-center">87 Lacs* Onwards</span>
+        <div>
+          <div>
+            <div class="owl-carousel">
+              <img src="./static/amenities-1.png" alt="amenities" class="w-full" />
+              <img src="./static/amenities-2.png" alt="amenities" class="w-full" />
+              <img src="./static/amenities-3.png" alt="amenities" class="w-full" />
+              <img src="./static/amenities-4.png" alt="amenities" class="w-full" />
+              <img src="./static/amenities-5.png" alt="amenities" class="w-full" />
+              <img src="./static/amenities-6.png" alt="amenities" class="w-full" />
+              <img src="./static/amenities-7.png" alt="amenities" class="w-full" />
+            </div>
+            <div class="owl-dots flex items-center justify-center py-2"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -224,92 +196,313 @@
 
   <!-- Address Section -->
   <section class="bg-brand-gray text-black w-full py-10">
-    <div class="w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div class="w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-10">
       <div class="flex flex-col items-center justify-center h-full text-center">
-        <h2 class="text-center text-2xl font-bold mb-2">Address</h2>
+        <h2 class="text-center text-2xl font-bold mb-2">
+          Location Highlights
+        </h2>
         <hr class="w-20 mb-10 bg-black border-none h-0.5" />
 
-        <p class="text-lg font-bold">LIFE REPUBLIC</p>
-        <p class="w-full md:w-2/3">
-          Life Republic, Survey No. 74, Marunji, Hinjawadi-Marunji-Kasarsai Road, Taluka Mulshi, Pune – 411057
-        </p>
+        <ul class="list-disc text-left flex flex-col space-y-10 mt-4">
+          <li>Well Connected to Pune Mumbai Expressway</li>
+          <li>Multiple Connectivity's from Rajiv Gandhi IT Park & PCMC</li>
+          <li>Upcoming Pune Metro Connecting Hinjewadi to Shivaji Nagar</li>
+          <li>
+            Upcoming Mahalunge - Hinjewadi IT PARK Bridge on Mula River
+            Connecting Baner & Balewadi
+          </li>
+          <li>Upcoming 110m Wide Ring Road to Link PMC to Major Highways</li>
+        </ul>
       </div>
 
       <div>
-        <img src="./static/loc.jpeg" alt="Location Map" class="h-80" />
+        <img src="./static/loc.jpeg" alt="Location Map" class="h-[30rem] object-contain" />
       </div>
     </div>
   </section>
 
-  <!-- Contact Us Section -->
-  <section id="Contact-Us" class="bg-brand-green text-white w-full py-10">
-    <div class="w-10/12 mx-auto flex flex-col items-center justify-center">
-      <h2 class="text-center text-2xl font-bold mb-2">Contact Us</h2>
-      <hr class="w-20 mb-10 bg-white border-none h-0.5" />
 
-      <div class="w-full md:w-8/12 mx-auto">
-        <form class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+
+  <!-- Footer -->
+  <footer class="w-full bg-brand-dark text-white font-sans">
+    <div class="w-11/12 mg:w-9/10 lg:w-10/12 mx-auto flex flex-col md:flex-row md:gap-20 gap-10 py-10">
+      <div class="w-full md:w-5/12">
+        <h5 class="mb-5 text-center font-bold text-lg">
+          A STEP AHEAD. ASK TO OWN.
+        </h5>
+        <form class="flex flex-col space-y-5 mb-5 bg-gray-200 text-black p-5 md:p-10 rounded-xl">
           <input placeholder="First Name" type="text" name="first_name"
-            class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black" />
+            class="py-2 px-2 placeholder:text-black/50 placeholder:font-semibold font-semibold text-black" />
           <input placeholder="Phone" type="text" name="phone"
-            class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black" />
+            class="py-2 px-2 placeholder:text-black/50 placeholder:font-semibold font-semibold text-black" />
           <input placeholder="Email" type="email" name="email"
-            class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black" />
+            class="py-2 px-2 placeholder:text-black/50 placeholder:font-semibold font-semibold text-black" />
           <select placeholder="Configuration" name="configuration"
-            class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black">
+            class="py-2 px-2 placeholder:text-black/50 placeholder:font-semibold font-semibold text-black/50">
             <option value="">Configuration Looking For</option>
             <option value="2bhk">2 BHK</option>
             <option value="3bhk">3 BHK</option>
           </select>
 
           <select placeholder="Site Visit Availablity" name="site_visit_availablity"
-            class="py-2 px-2 placeholder:text-black placeholder:font-semibold font-semibold text-black">
+            class="py-2 px-2 placeholder:text-black/50 placeholder:font-semibold font-semibold text-black/50">
             <option value="">Site Visit Availablity?</option>
             <option value="2bhk">Weekends</option>
             <option value="3bhk">Weekdays</option>
           </select>
 
-          <div class="md:col-span-2">
+          <div>
             <input type="checkbox" name="agree_to_contact" id="agree_to_contact" />
             <label for="agree_to_contact">I agreed to be contacted on Whatsapp</label>
           </div>
 
-          <button type="submit" class="bg-black text-white px-5 py-2 font-semibold">
+          <button type="submit" class="bg-brand-dark text-white px-5 py-2 font-semibold animate-btn">
             Submit
           </button>
         </form>
-
-        <p>Projects are registered under MahaRERA</p>
       </div>
-    </div>
-  </section>
 
-  <!-- Ceratec Group Section -->
-  <section class="bg-white text-black w-full py-5">
-    <div class="w-10/12 mx-auto">
-      <div class="flex flex-col items-center justify-center h-full text-center">
-        <div class="flex gap-5">
-          <img src="./static/kolte-patil.png" alt="logo" class="h-16 mb-5" />
-          <img src="./static/logo.png" alt="logo" class="h-16 mb-5" />
+      <div class="flex flex-col gap-5 text-center justify-center md:text-left w-full md:w-6/12 md:pl-20">
+        <div class="h-20 flex text-center justify-center items-center md:justify-start w-full">
+          <div class="flex gap-5">
+            <img
+              src="./static/kolte-patil.png"
+              class="h-20 bg-white p-2"
+              alt="logo"
+            />
+            <img src="./static/logo.png" class="h-20 bg-white p-2" alt="logo" />
+          </div>
         </div>
-        <p class="text-justify leading-7 text-gray-600 mb-5">
-          Life Republic is an address for exciting activities connecting people to one another while also giving them
-          ample choices to pursue their desires. Be it an avenue for a relaxing evening outdoor or an exhilarating game
-          inside the club house, here you live life to the fullest. Celebrations are the brightest in this community and
-          the fervour of the occasion elevates in vibrant colours. Be it Holi, Diwali or New Year’s eve, here every
-          occasion is a grand celebration, where people come together filling the day with unmatched fun and excitement.
-        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
+          <div>
+            <p class="mb-5">
+              Life Republic is an address for exciting activities connecting
+                people to one another while also giving them ample choices to
+                pursue their desires.
+            </p>
+            <p class="font-bold">CONTACT US</p>
+            <p class="mb-5">
+              Adjacent to D.Y. Patil Knowledge City, Charholi Bk, Pune 412105.
+            </p>
+            <p class="font-bold">CALL US</p>
+            <p class="mb-5"> <a href="tel:+91-79068 31859"> +91-79068 31859</a></p>
+          </div>
+          <div>
+            <p class="font-bold mb-3">QUICK LINKS</p>
+            <ul class="flex flex-col space-y-2">
+              <li class="before:content-['>'] before:pr-1">
+                2 Bhk Flats
+              </li>
+              <li class="before:content-['>'] before:pr-1">
+                Projects in Hinjewadi
+              </li>
+              <li class="before:content-['>'] before:pr-1.5">
+                3 Bhk Flats
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="w-full bg-black flex items-center justify-center text-center text-white py-1">
-    <small>
-      Copyright @2022. All Rights Reserved. Designed by Pinaka Digital
-      Technologies
-    </small>
+    <div class="w-full bg-brand-gray flex items-center justify-center text-center text-black py-1">
+      <small>
+        Copyright @2022. All Rights Reserved. Designed by Pinaka Digital
+        Technologies
+      </small>
+    </div>
   </footer>
+
+
+  <!-- ----- button-fixed----  -->
+  <div class="h-20 items-stretch flex flex-row sticky bottom-0 left-0 right-0 bg-brand-dark text-lg md:hidden">
+    <button
+      class="w-full flex items-center gap-3 justify-center text-center flex-col p-4 text-sm bg-brand-dark text-gray-300 lg:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
+      onclick="handleToggleModel()">
+      <i class="fa fa-th-large"></i>
+      <span>Enquire Now</span>
+    </button>
+    <div class="h-full w-3 bg-white"></div>
+    <a href="tel:+91-79068 31859"
+      class="gap-3 w-full flex items-center justify-center text-center flex-col p-4 text-sm bg-brand-dark text-gray-300 lg:hidden focus:outline-none focus:ring-2 focus:ring-gray-200">
+      <i class="fa-solid fa-phone"></i>
+      <span>Call Now</span>
+    </a>
+  </div>
+
+
+  <!-- Floating Button -->
+  <button onclick="handleToggleModel()"
+    class="fixed -right-16 bottom-32 rotate-90 bg-brand-dark py-2 px-3 hidden md:block text-white animate-btn z-40">
+    Schedule a Site Visit
+  </button>
+
+  <!-- Model -->
+  <div id="model" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center font-sans hidden">
+    <div
+      class="[max-height:calc(100vh)] h-full w-full md:h-auto md:w-auto bg-white p-10 relative grid grid-cols-1 md:grid-cols-2 gap-10 overflow-y-auto">
+      <button onclick="handleToggleModel(true)"
+        class="absolute flex items-center justify-center w-10 h-10 top-2 right-2 bg-white rounded-full p-3 shadow-lg">
+        x
+      </button>
+      <div>
+        <h4 class="font-bold text-xl text-center mb-3">Get In Touch</h4>
+        <form class="flex flex-col space-y-5 text-black">
+          <input placeholder="First Name" type="text" name="first_name"
+            class="py-2 px-2 placeholder:text-black/50 border rounded-lg placeholder:font-semibold font-semibold text-black" />
+          <input placeholder="Phone" type="text" name="phone"
+            class="py-2 px-2 placeholder:text-black/50 border rounded-lg placeholder:font-semibold font-semibold text-black" />
+          <input placeholder="Email" type="email" name="email"
+            class="py-2 px-2 placeholder:text-black/50 border rounded-lg placeholder:font-semibold font-semibold text-black" />
+          <select placeholder="Configuration" name="configuration"
+            class="py-2 px-2 placeholder:text-black/50 border rounded-lg placeholder:font-semibold font-semibold text-black/50">
+            <option value="">Configuration Looking For</option>
+            <option value="2bhk">2 BHK</option>
+            <option value="3bhk">3 BHK</option>
+          </select>
+
+          <select placeholder="Site Visit Availablity" name="site_visit_availablity"
+            class="py-2 px-2 placeholder:text-black/50 border rounded-lg placeholder:font-semibold font-semibold text-black/50">
+            <option value="">Site Visit Availablity?</option>
+            <option value="2bhk">Weekends</option>
+            <option value="3bhk">Weekdays</option>
+          </select>
+
+          <div>
+            <input type="checkbox" name="agree_to_contact" id="agree_to_contact" />
+            <label for="agree_to_contact">I agreed to be contacted on Whatsapp</label>
+          </div>
+
+          <button type="submit" class="bg-black text-white px-5 py-2 font-semibold animate-btn">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-xl text-left mb-3">Address</h4>
+        <p class="font-bold">Pride World City</p>
+        <p class="mb-5">Charoli, Lohegaon-Dhanori Road, Pune</p>
+        <img src="./static/loc.jpeg" alt="Location Map" class="h-80 object-contain" />
+      </div>
+    </div>
+  </div>
+
+  <!------ Navbar Model ----- -->
+  <div id="navbar-model" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center font-sans hidden">
+    <div class="[max-height:calc(100vh)] w-full h-full bg-white p-10 relative grid grid-cols-1 gap-10 overflow-y-auto">
+      <button onclick="handleToggleNavbarModel(true)"
+        class="absolute flex items-center justify-center w-10 h-10 top-2 right-2 bg-white rounded-full p-3 shadow-lg">
+        x
+      </button>
+      <div class="flex gap-5 justify-center">
+        <img src="./static/kolte-patil.png" class="h-16" alt="logo" />
+        <img src="./static/logo.png" class="h-16" alt="logo" />
+      </div>
+      <ul class="mb-40 text-center flex flex-col space-y-10 text-xl">
+        <li><a href="#">Overview</a></li>
+        <li><a href="#">Project Highlights</a></li>
+        <li><a href="#">Location Insights</a></li>
+        <li><a href="#">Amenities</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#"><i class="fa-solid fa-phone mr-4"></i>+91-79068 31859</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            brand: "'Merriweather', serif",
+          },
+          colors: {
+            brand: {
+              gray: "#F7F7F7",
+              dark: "#141b1f",
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <script>
+    let isNavbarOpen = false;
+    function handleToggleNavbar(forceClose = false) {
+      if (forceClose) {
+        isNavbarOpen = true;
+      }
+      if (isNavbarOpen) {
+        $("#navbar-items").addClass("hidden space-x-5");
+        $("#navbar-items").removeClass(
+          "flex pt-5 px-5 !items-start !justify-start !space-y-3"
+        );
+
+        isNavbarOpen = false;
+      } else {
+        $("#navbar-items").removeClass("hidden space-x-5");
+        $("#navbar-items").addClass(
+          "flex pt-5 px-5 !items-start !justify-start !space-y-3"
+        );
+        isNavbarOpen = true;
+      }
+    }
+  </script>
+
+  <script>
+    let isModelOpen = false;
+    function handleToggleModel(forceClose = false) {
+      if (forceClose) {
+        isModelOpen = true;
+      }
+      if (isModelOpen) {
+        $("#model").addClass("hidden");
+
+        isModelOpen = false;
+      } else {
+        $("#model").removeClass("hidden");
+
+        isModelOpen = true;
+      }
+    }
+  </script>
+
+  <script>
+    let isNavbarModelOpen = false;
+    function handleToggleNavbarModel(forceClose = false) {
+      if (forceClose) {
+        isNavbarModelOpen = true;
+      }
+      if (isNavbarModelOpen) {
+        $("#navbar-model").addClass("hidden");
+
+        isNavbarModelOpen = false;
+      } else {
+        $("#navbar-model").removeClass("hidden");
+
+        isNavbarModelOpen = true;
+      }
+    }
+  </script>
+  <script>
+    $(document).ready(function () {
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        items: 1,
+        autoplay: true,
+        autoplayTimeout: 1000,
+        autoplayHoverPause: true,
+        dots: true,
+        dotsContainer: ".owl-dots",
+      });
+    });
+  </script>
 </body>
 
 </html>
